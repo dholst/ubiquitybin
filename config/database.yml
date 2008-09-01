@@ -19,3 +19,4 @@ production:
   username: ubiquitybin
   password: 
   timeout: 5000
+  socket: /var/run/mysqld/mysqld.sock
