@@ -1,0 +1,12 @@
+<% content_for(:head) do %>
+  <link rel="commands" href="<%= script_url(@script) + '.js' %>">
+<% end %>
+
+<div class="script">
+	<div class="header">
+		<div class="name"><%= @script.name %></div>
+		<div class="description"><%= @script.description %></div>
+	</div>
+
+	<div><pre><%= @script.body %></pre></div>
+</div>

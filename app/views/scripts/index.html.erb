@@ -1,0 +1,26 @@
+<div class="scripts">
+	<div class="header">
+		<div class="username">
+			<%= @all_scripts ? 'All' : link_to(@username, username_path(:username => @username)) %>
+		</div>
+		
+		<% if @my_scripts %>
+			<div id="add_script"><%= link_to 'add', new_script_path %></div>
+		<% end %>
+		
+		<div class="clear"></div>
+	</div>
+
+	<div class="list">
+		<hr>
+	
+		<% for script in @scripts %>
+			<div class="name"><%= script_name(script) %></div><div class="time"><%= @all_scripts ? "#{time_ago_in_words(script.updated_at)} ago" : "" %></div>
+			<div class="description"><%= h(script.description) %></div>
+			<hr>
+		<% end %>
+	</div>
+	
+	<%= will_paginate @scripts %>
+</div>
+

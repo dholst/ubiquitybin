@@ -1,2 +1,4 @@
 .eprj
 log
+site_keys.rb
+*.sqlite3

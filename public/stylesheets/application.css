@@ -1,0 +1,117 @@
+body {
+  font-family: Helvetica, sans-serif;
+  padding: 100px;
+  padding-top: 10px;
+	color: #333;
+}
+
+a {
+  color: #333;
+}
+
+textarea {
+	width: 100%;
+}
+
+.error {
+	background-color: #ffc0c0;
+	margin-bottom: 3px;
+}
+
+.errors {
+	color: red;
+}
+
+.clear {
+	clear: both;
+}
+
+#header {
+	position: relative;
+	background-color: #eee;
+	border: 1px solid #ddd;
+	padding: 30px;
+	background: url(/images/header.jpg) repeat-x;
+}
+
+#header .logo {
+}
+
+#header .links {
+	position: absolute;
+	float: right;
+	bottom: 30px;
+	right: 30px;
+}
+
+#container {
+	padding: 30px;
+}
+
+#container .header {
+	font-size: 1.3em;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.home p {
+  line-height: 1.5em;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.home p.signup {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.description {
+	font-weight: normal;
+	margin-top: 5px;
+	font-style: italic;
+	margin-left: 5px;
+	clear: both;
+}
+
+.scripts .header a {
+	text-decoration: none;
+}
+
+.scripts .header .username {
+	float: left;
+}
+
+.scripts #add_script {
+	float: right;
+	font-weight: normal;
+}
+
+.scripts .list {
+	margin-bottom: 20px;
+}
+
+.scripts .list .name {
+	float: left;
+	font-size: 1.1em;
+}
+
+.scripts .list .name .username {
+	font-size: .8em;
+}
+
+.scripts .list .time {
+	float: right;
+	font-size: .9em;
+	font-style: italic;
+}
+
+.scripts .list .description {
+	padding-top: 5px;
+	font-style: italic;
+	margin-left: 5px;
+	clear: both;
+}
+
+
+

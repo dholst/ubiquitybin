@@ -1,0 +1,21 @@
+<% form_for :script, :url => scripts_path do |f| %>
+	<p>
+		<%= f.label :name %>
+		<br>
+		<%= f.text_field :name %>
+	</p>
+
+	<p>
+		<%= f.label :descripton %>
+		<br>
+		<%= f.text_field :description, :size => 100 %>
+	</p>
+
+	<p>
+		<%= f.text_area :body %>
+	</p>
+
+	<p>
+		<%= f.submit 'Save'%>
+	</p>
+<% end %>
