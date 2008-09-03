@@ -1,0 +1,3 @@
+<% form_for :script, :url => script_path(@script), :html => {:method => :put} do |f| -%>
+  <%= render :partial => "script", :locals => { :form => f, :cancel_url => users_script_url(@script.user.login, @script.name) } %>
+<% end -%>

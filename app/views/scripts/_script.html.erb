@@ -1,0 +1,19 @@
+<p>
+	<%= form.label :name %>
+	<br>
+	<%= form.text_field :name %>
+</p>
+
+<p>
+	<%= form.label :descripton %>
+	<br>
+	<%= form.text_field :description, :size => 100 %>
+</p>
+
+<p>
+	<%= form.text_area :body %>
+</p>
+
+<p>
+	<%= form.submit 'Save'%> or <%= link_to('cancel', cancel_url) %>
+</p>

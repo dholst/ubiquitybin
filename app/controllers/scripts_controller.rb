@@ -1,5 +1,6 @@
 class ScriptsController < ApplicationController
   before_filter :login_required, :except => [ :index, :show ]
+  before_filter :find_own_script, :only => [ :edit, :update, :destroy ]
   
   def index
     @my_scripts = @all_scripts = false
@@ -26,7 +27,7 @@ class ScriptsController < ApplicationController
     @script.user_id = current_user.id
     
     if( @script.save )
-      redirect_to username_path(:username => current_user.login)
+      redirect_to username_path(current_user.login)
     else
       render :action => :new
     end
@@ -40,19 +41,33 @@ class ScriptsController < ApplicationController
         @script = Script.find_by_user_id_and_name(user.id, params[:name])
       end
     else
-      @script = Script.find(params[:id])
+      @script = Script.find_by_id(params[:id])
     end
     
     four_o_four unless @script
   end
   
-  def destroy
-    @script = Script.find(params[:id])
-    
-    if(@script && @script.user == current_user)
-      @script.destroy
+  def edit
+  end
+
+  def update
+    if(@script.update_attributes(params[:script]))
+      redirect_to users_script_url(@script.user.login, @script.name)
+    else
+      render :action => :edit
     end
-    
-    redirect_to username_path(:username => current_user.login)
+  end
+
+  def destroy
+    @script.destroy if @script
+    redirect_to username_path(current_user.login)
+  end
+
+  protected
+
+  def find_own_script
+    @script = Script.find(params[:id])
+    four_o_four and return unless @script
+    four_twenty_two and return unless @script.user == current_user
   end
 end

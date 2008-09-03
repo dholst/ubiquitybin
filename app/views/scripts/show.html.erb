@@ -1,12 +1,24 @@
-<% content_for(:head) do %>
-  <link rel="commands" href="<%= script_url(@script) + '.js' %>">
-<% end %>
+<% content_for(:head) do -%>
+  <link rel="commands" href="<%= users_script_url(@script.user.login, @script.name) + '.js' %>">
+<% end -%>
 
-<div class="script">
-	<div class="header">
-		<div class="name"><%= @script.name %></div>
-		<div class="description"><%= @script.description %></div>
+<div class="header">
+	<div class="username">
+			<%= link_to(h(@script.user.login), username_path(@script.user.login)) %>
 	</div>
+	
+  <div class="clear"></div>
+</div>
 
-	<div><pre><%= @script.body %></pre></div>
+<hr>
+		
+<div class="script">
+	<div class="name"><%= h(@script.name) %></div>
+	
+	<% if current_user == @script.user -%>
+    <%= script_actions(@script) %>
+  <% end -%>
+  
+	<div class="description"><%= h(@script.description) %></div>
+	<div><pre><%= h(@script.body) %></pre></div>
 </div>

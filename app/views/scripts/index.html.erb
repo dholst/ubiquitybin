@@ -1,35 +1,40 @@
-<div class="scripts">
+
 	<div class="header">
 		<div class="username">
-			<%= @all_scripts ? 'All' : link_to(@username, username_path(:username => @username)) %>
+			<%= @all_scripts ? 'All' : link_to(h(@username), username_path(@username)) %>
 		</div>
 		
-		<% if @my_scripts %>
+		<% if @my_scripts -%>
 			<div id="add_script"><%= link_to 'add', new_script_path %></div>
-		<% end %>
+		<% end -%>
 		
 		<div class="clear"></div>
 	</div>
 
 	<div class="list">
 		<hr>
-	
-		<% for script in @scripts %>
-			<div class="name"><%= script_name(script) %></div>
-			
-		  <% if @all_scripts %>
-		    <div class="time"><%= time_ago_in_words(script.updated_at) %> ago</div>
-		  <% end %>
-		  
-		  <% if @my_scripts %>
-		    <div class="delete"><%= link_to "delete", script_path(script), :confirm => "Are you sure?", :method => :delete %></div>
-		  <% end %>
-		  
-			<div class="description"><%= h(script.description) %></div>
+		<% for script in @scripts -%>
+		  <div class="script">
+  			<%= script_name(script) %>
+  			
+  		  <% if @all_scripts -%>
+  		    <%= script_time(script) %>
+  		  <% end -%>
+  		  
+  		  <% if @my_scripts -%>
+  		    <%= script_actions(script) %>
+  		  <% end -%>
+  		  
+  		  <%= script_description(script)%>
+  		</div>
 			<hr>
-		<% end %>
+		<% end -%>
 	</div>
 	
 	<%= will_paginate @scripts %>
-</div>
+	
+	<% if @scripts.empty? -%>
+	  <div class="no_scripts">Go ahead, give 'er a try</div>
+	<% end -%>
+
 

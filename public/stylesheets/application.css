@@ -64,13 +64,17 @@ textarea {
 #container {
   position: relative;
 	padding: 30px;
-	margin-top: 5px;
+	border: 2px solid #0074ed;
 }
 
-#container .header {
+.header {
 	font-size: 1.3em;
 	font-weight: bold;
 	margin-bottom: 20px;
+}
+
+.header .username {
+  float: left;
 }
 
 .home p {
@@ -85,57 +89,61 @@ textarea {
   font-size: 1.2em;
 }
 
-.description {
-	font-weight: normal;
-	margin-top: 5px;
-	font-style: italic;
-	margin-left: 5px;
-	clear: both;
+.actions {
+  font-size: .9em;
+  float: right;
 }
 
-.scripts .header a {
-	text-decoration: none;
-}
-
-.scripts .header .username {
-	float: left;
-}
-
-.scripts #add_script {
+#add_script {
 	float: right;
 	font-weight: normal;
 }
 
-.scripts .list {
+.list {
 	margin-bottom: 20px;
 }
 
-.scripts .list .name {
-	float: left;
+.script .name {
 	font-size: 1.1em;
 }
 
-.scripts .list .name .username {
+.script .name .username {
 	font-size: .8em;
 }
 
-.scripts .list .time {
+.script .time {
 	float: right;
 	font-size: .9em;
 	font-style: italic;
 }
 
-.scripts .delete {
-  font-size: .9em;
-  float: right;
+.script a:hover {
+  background-color: #ffa;
 }
 
-.scripts .list .description {
-	padding-top: 5px;
+.script .name {
+  float: left;
+  font-size: 1.1em;
+}
+
+.script .description {
+	font-weight: normal;
+	padding: 10px;
 	font-style: italic;
-	margin-left: 5px;
 	clear: both;
+	overflow: hidden;
 }
 
+.no_scripts {
+  float: right;
+  font-size: 1.5em;
+  font-weight: bold;
+}
 
+#footer {
+  color: #ff0;
+  text-align: center;
+  background-color: #0074ed;
+  padding: 5px;
+}
 

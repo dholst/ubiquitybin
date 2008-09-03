@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     if logged_in?
-      redirect_to username_url(:username => current_user.login)
+      redirect_to username_url(current_user.login)
     end
   end
   

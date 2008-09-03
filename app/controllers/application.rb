@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
   protected
   
   def four_o_four
-    render :file => "#{RAILS_ROOT}/public/404.html", :status => 404    
-  end  
+    render :file => "#{RAILS_ROOT}/public/404.html", :status => 404
+  end
+
+  def four_twenty_two
+    render :file => "#{RAILS_ROOT}/public/422.html", :status => 422
+  end
 end
