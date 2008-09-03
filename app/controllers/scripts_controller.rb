@@ -9,7 +9,7 @@ class ScriptsController < ApplicationController
       user = User.find_by_login(@username)
       
       if(!user)
-        render :text => 'Not Found', :status => 404
+        four_o_four
         return
       end
       
@@ -43,7 +43,7 @@ class ScriptsController < ApplicationController
       @script = Script.find(params[:id])
     end
     
-    render :text => 'Not found', :status => 404 unless @script
+    four_o_four unless @script
   end
   
   def destroy
