@@ -2,3 +2,4 @@
 log
 site_keys.rb
 *.sqlite3
+.DS_Store

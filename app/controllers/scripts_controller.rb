@@ -34,9 +34,25 @@ class ScriptsController < ApplicationController
   
   def show
     if(params[:username] && params[:name])
-      @script = Script.find_by_user_id_and_name(User.find_by_login(params[:username]).id, params[:name])
+      user = User.find_by_login(params[:username])
+      
+      if(user) 
+        @script = Script.find_by_user_id_and_name(user.id, params[:name])
+      end
     else
       @script = Script.find(params[:id])
     end
+    
+    render :text => 'Not found', :status => 404 unless @script
+  end
+  
+  def destroy
+    @script = Script.find(params[:id])
+    
+    if(@script && @script.user == current_user)
+      @script.destroy
+    end
+    
+    redirect_to username_path(:username => current_user.login)
   end
 end

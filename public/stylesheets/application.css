@@ -18,6 +18,10 @@ textarea {
 	margin-bottom: 3px;
 }
 
+.info {
+  background-color: #ff9;
+} 
+
 .errors {
 	color: red;
 }
@@ -26,12 +30,25 @@ textarea {
 	clear: both;
 }
 
+
+#notification {
+  position: absolute;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
 #header {
 	position: relative;
-	background-color: #eee;
-	border: 1px solid #ddd;
 	padding: 30px;
 	background: url(/images/header.jpg) repeat-x;
+	color: #ff0;
+}
+
+#header a {
+  color: #ff0;
 }
 
 #header .logo {
@@ -45,7 +62,9 @@ textarea {
 }
 
 #container {
+  position: relative;
 	padding: 30px;
+	margin-top: 5px;
 }
 
 #container .header {
@@ -104,6 +123,11 @@ textarea {
 	float: right;
 	font-size: .9em;
 	font-style: italic;
+}
+
+.scripts .delete {
+  font-size: .9em;
+  float: right;
 }
 
 .scripts .list .description {

@@ -15,7 +15,16 @@
 		<hr>
 	
 		<% for script in @scripts %>
-			<div class="name"><%= script_name(script) %></div><div class="time"><%= @all_scripts ? "#{time_ago_in_words(script.updated_at)} ago" : "" %></div>
+			<div class="name"><%= script_name(script) %></div>
+			
+		  <% if @all_scripts %>
+		    <div class="time"><%= time_ago_in_words(script.updated_at) %></div>
+		  <% end %>
+		  
+		  <% if @my_scripts %>
+		    <div class="delete"><%= link_to "delete", script_path(script), :confirm => "Are you sure?", :method => :delete %></div>
+		  <% end %>
+		  
 			<div class="description"><%= h(script.description) %></div>
 			<hr>
 		<% end %>

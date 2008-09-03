@@ -8,7 +8,8 @@ ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
       html_tag.insert(html_tag.index(' '), ' class="error" ')
     end
     
-    html_tag << "<br><span class=\"errors\">#{[instance.error_message].flatten.join(', ')}</span>"
+    errors = [instance.error_message].flatten
+    html_tag << "<br><span title=\"#{errors.join(', ')}\" class=\"errors\">#{errors.first}</span>"
   else
     html_tag
   end
