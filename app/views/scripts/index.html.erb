@@ -18,7 +18,7 @@
 			<div class="name"><%= script_name(script) %></div>
 			
 		  <% if @all_scripts %>
-		    <div class="time"><%= time_ago_in_words(script.updated_at) %></div>
+		    <div class="time"><%= time_ago_in_words(script.updated_at) %> ago</div>
 		  <% end %>
 		  
 		  <% if @my_scripts %>
