@@ -10,8 +10,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resource  :session
   map.resources :scripts
 
-  map.users_script '/:username/:name', :controller => 'scripts', :action => 'show',  :conditions => { :method => :get }
-  map.username     '/:username',       :controller => 'scripts', :action => 'index', :conditions => { :method => :get }
+  map.users_script           '/:username/:name',         :controller => 'scripts', :action => 'show',  :conditions => { :method => :get }
+  map.formatted_users_script '/:username/:name.:format', :controller => 'scripts', :action => 'show',  :conditions => { :method => :get }
+  map.username               '/:username',               :controller => 'scripts', :action => 'index', :conditions => { :method => :get }
   
   map.root :controller => "home"
 end
