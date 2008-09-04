@@ -1,8 +1,9 @@
 body {
   font-family: Helvetica, sans-serif;
+  margin: 0;
   padding: 100px;
   padding-top: 10px;
-	color: #333;
+  color: #333;
 }
 
 a {
@@ -32,12 +33,11 @@ textarea {
 
 
 #notification {
-  position: absolute;
-  padding: 5px;
+  text-align: center;
+  width: 100%;
   margin-top: 5px;
-  margin-bottom: 5px;
-  margin-right: 30px;
-  margin-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 #header {
@@ -51,7 +51,8 @@ textarea {
   color: #ff0;
 }
 
-#header .logo {
+#header .logo a {
+	text-decoration: none;
 }
 
 #header .links {
@@ -64,7 +65,7 @@ textarea {
 #container {
   position: relative;
 	padding: 30px;
-	border: 2px solid #0074ed;
+
 }
 
 .header {
