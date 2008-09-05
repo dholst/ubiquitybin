@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   def create
     logout_keeping_session!
     @user = User.new(params[:user])
+    @user.terms_of_service = params[:user][:terms_of_service]
     success = @user && @user.save
     
     if success && @user.errors.empty?

@@ -33,7 +33,8 @@
 		</div>
 
 		<div id="footer">
-		  some footer stuff
+		  <%= link_to 'Terms of Service', terms_url, :target => '_blank' %> |
+		  <%= link_to 'Contact me', contact_url %>
 		</div>
 
 		<% if RAILS_ENV == 'production' -%>

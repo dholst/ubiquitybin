@@ -4,6 +4,11 @@
   <%= render :partial => "user", :locals => { :form => f} %>
 
   <p>
+		<%= f.check_box :terms_of_service %>
+		<%= f.label :terms_of_service, "I agree to the #{link_to 'Terms of Service', terms_url, :target => '_blank'}" %>
+	</p>
+
+  <p>
     <%= submit_tag 'Sign up' %> or <%= link_to 'cancel', '/'%>
   </p>
 <% end -%>

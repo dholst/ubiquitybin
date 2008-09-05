@@ -6,9 +6,10 @@ class User < ActiveRecord::Base
   include Authentication::ByCookieToken
 
   validates_presence_of     :login
-  validates_length_of       :login,    :within => 3..40
+  validates_length_of       :login, :within => 3..40
   validates_uniqueness_of   :login
-  validates_format_of       :login,    :with => Authentication.login_regex, :message => Authentication.bad_login_message
+  validates_format_of       :login, :with => Authentication.login_regex, :message => Authentication.bad_login_message
+  validates_exclusion_of    :login, :in => %w( admin logout login register signup activate home terms contact users session contact privacy )
 
   validates_format_of       :name,     :with => Authentication.name_regex,  :message => Authentication.bad_name_message, :allow_nil => true
   validates_length_of       :name,     :maximum => 100
@@ -18,6 +19,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of   :email
   validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
 
+  validates_acceptance_of   :terms_of_service, :on => :create
+
   before_create :make_activation_code 
 
   # HACK HACK HACK -- how to do attr_accessible from here?
@@ -25,6 +28,13 @@ class User < ActiveRecord::Base
   # anything else you want your user to change should be added here.
   attr_accessible :login, :email, :name, :password, :password_confirmation
 
+  def terms_of_service
+    @terms_of_service || 0
+  end
+
+  def terms_of_service=(tos)
+    @terms_of_service = tos
+  end
 
   # Activates the user in the database.
   def activate!
