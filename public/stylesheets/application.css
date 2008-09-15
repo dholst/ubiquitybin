@@ -84,8 +84,11 @@ textarea {
   margin-right: 50px;
 }
 
-.home p.signup {
+.home p {
   text-align: center;
+}
+
+.home p.signup {
   font-weight: bold;
   font-size: 1.2em;
 }
